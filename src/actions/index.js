@@ -8,3 +8,9 @@ export const fetchPosts =  () => {
     };
     
 };
+export const fetchUser = (id) => {
+    return async (dispatch) => {
+        const response = await JasonPlaceHolder.get(`/users/${id}`);
+        dispatch({ type: 'FETCH_USER', payload: response.data });
+    };
+};
