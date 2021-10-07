@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import JasonPlaceHolder from "../api/JasonPlaceHolder";
 
 export const fetchPosts =  () => {
@@ -8,9 +9,8 @@ export const fetchPosts =  () => {
     };
     
 };
-export const fetchUser = (id) => {
-    return async (dispatch) => {
+export const fetchUser = id => dispactch => _fetchUser(id, dispactch);
+const _fetchUser = _.memoize(async (id,dispatch) => {
         const response = await JasonPlaceHolder.get(`/users/${id}`);
         dispatch({ type: 'FETCH_USER', payload: response.data });
-    };
-};
+    });
