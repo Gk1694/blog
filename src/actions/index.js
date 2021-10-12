@@ -4,7 +4,7 @@ import JasonPlaceHolder from "../api/JasonPlaceHolder";
 export const fetchPostsAndUsers = () => async (dispatch, getState ) => {
     //console.log('About to fetch post');
     await dispatch(fetchPosts());
-    //console.log(getState().posts)
+    //console.log(getState().posts)s
     //console.log('fetched posts');
     const userIds = _.uniq(_.map(getState().posts, 'userId'));
     //console.log(userIds);
